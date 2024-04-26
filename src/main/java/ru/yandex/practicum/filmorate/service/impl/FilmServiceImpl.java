@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate.service.impl;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,6 @@ import ru.yandex.practicum.filmorate.service.FilmService;
 import ru.yandex.practicum.filmorate.storage.FilmStorage;
 import ru.yandex.practicum.filmorate.storage.UserStorage;
 import ru.yandex.practicum.generated.model.dto.FilmDTO;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -89,7 +88,7 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public List<FilmDTO> getTopTenByLikes(Long count) {
+    public List<FilmDTO> getPopular(Long count) {
         count = count == null ? 10 : count;
         log.info("Получение списка фильмов по количеству лайков");
         List<FilmDTO> top = getAll().stream()

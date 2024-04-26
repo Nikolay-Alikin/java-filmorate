@@ -1,5 +1,7 @@
 package ru.yandex.practicum.filmorate.service.impl;
 
+import java.time.LocalDate;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,9 +15,6 @@ import ru.yandex.practicum.filmorate.mapper.UserMapper;
 import ru.yandex.practicum.filmorate.model.entity.User;
 import ru.yandex.practicum.filmorate.storage.UserStorage;
 import ru.yandex.practicum.generated.model.dto.UserDTO;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {

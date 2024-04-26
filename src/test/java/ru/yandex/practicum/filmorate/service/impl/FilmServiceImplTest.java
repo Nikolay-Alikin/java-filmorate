@@ -1,5 +1,7 @@
 package ru.yandex.practicum.filmorate.service.impl;
 
+import java.time.LocalDate;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,9 +17,6 @@ import ru.yandex.practicum.filmorate.model.entity.User;
 import ru.yandex.practicum.filmorate.storage.FilmStorage;
 import ru.yandex.practicum.filmorate.storage.UserStorage;
 import ru.yandex.practicum.generated.model.dto.FilmDTO;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class FilmServiceImplTest {
@@ -157,7 +156,7 @@ class FilmServiceImplTest {
 
     @Test
     @DisplayName("Проверка получения самых популярных фильмов")
-    void getTopTenByLikes() {
+    void getPopular() {
         List<Long> likesForFirstFilm = List.of(1L, 2L, 3L, 4L, 5L);
         List<Long> likesForSecondFilm = List.of(1L);
         Film secondFilm = Film.builder()
@@ -181,7 +180,7 @@ class FilmServiceImplTest {
 
         Mockito.when(filmStorage.getAll()).thenReturn(List.of(filmBeforeCreate, secondFilm));
 
-        List<FilmDTO> result = filmService.getTopTenByLikes(10L);
+        List<FilmDTO> result = filmService.getPopular(10L);
 
         Assertions.assertThat(result).isEqualTo(List.of(filmDTO, secondFilmDto));
     }

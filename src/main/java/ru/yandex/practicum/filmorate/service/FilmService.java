@@ -1,8 +1,7 @@
 package ru.yandex.practicum.filmorate.service;
 
-import ru.yandex.practicum.generated.model.dto.FilmDTO;
-
 import java.util.List;
+import ru.yandex.practicum.generated.model.dto.FilmDTO;
 
 public interface FilmService {
 
@@ -27,6 +26,6 @@ public interface FilmService {
 
     Long deleteLike(Long userId, Long filmId);
 
-    List<FilmDTO> getTopTenByLikes(Long count);
+    List<FilmDTO> getPopular(Long count);
 
 }
