@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.mapper.FilmMapper;
-import ru.yandex.practicum.filmorate.model.entity.Film;
 import ru.yandex.practicum.generated.api.FilmsApi;
 import ru.yandex.practicum.generated.model.dto.FilmDTO;
 
