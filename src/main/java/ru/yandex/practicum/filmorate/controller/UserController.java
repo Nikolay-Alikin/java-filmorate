@@ -8,9 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.practicum.filmorate.exception.ValidationException;
-import ru.yandex.practicum.filmorate.service.UserService;
 import ru.yandex.practicum.generated.api.UsersApi;
 import ru.yandex.practicum.generated.model.dto.UserDTO;
+import ru.yandex.practicum.filmorate.service.UserService;
+import java.time.LocalDate;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -74,3 +76,4 @@ public class UserController implements UsersApi {
         }
     }
 }
+

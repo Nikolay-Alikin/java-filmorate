@@ -1,7 +1,5 @@
 package ru.yandex.practicum.filmorate.controller;
 
-import java.time.LocalDate;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +8,9 @@ import ru.yandex.practicum.filmorate.exception.ValidationException;
 import ru.yandex.practicum.filmorate.service.FilmService;
 import ru.yandex.practicum.generated.api.FilmsApi;
 import ru.yandex.practicum.generated.model.dto.FilmDTO;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Slf4j
 @RestController
