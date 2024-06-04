@@ -1,12 +1,11 @@
 package ru.yandex.practicum.filmorate.storage.inmemory;
 
-import org.springframework.stereotype.Component;
-import ru.yandex.practicum.filmorate.model.entity.User;
-import ru.yandex.practicum.filmorate.storage.UserStorage;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Component;
+import ru.yandex.practicum.filmorate.model.entity.User;
+import ru.yandex.practicum.filmorate.storage.UserStorage;
 
 @Component
 public class InMemoryUserStorage implements UserStorage {
@@ -40,10 +39,5 @@ public class InMemoryUserStorage implements UserStorage {
     @Override
     public List<User> getAll() {
         return users.values().stream().toList();
-    }
-
-    @Override
-    public boolean isExists(Long id) {
-        return users.containsKey(id);
     }
 }

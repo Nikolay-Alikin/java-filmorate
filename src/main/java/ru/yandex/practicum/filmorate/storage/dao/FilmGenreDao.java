@@ -1,5 +1,10 @@
 package ru.yandex.practicum.filmorate.storage.dao;
 
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,12 +12,6 @@ import org.springframework.stereotype.Repository;
 import ru.yandex.practicum.filmorate.model.entity.film.enumerated.Genre;
 import ru.yandex.practicum.filmorate.storage.FilmGenreStorage;
 import ru.yandex.practicum.filmorate.storage.dao.mapper.GenreRowMapper;
-
-import java.util.Comparator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Repository
@@ -23,7 +22,7 @@ public class FilmGenreDao implements FilmGenreStorage {
     private final GenreRowMapper rowMapper;
 
     @Override
-    public void add(Long filmId, Set<Genre> genres) {
+    public void add(Long filmId, List<Genre> genres) {
         log.info("Добавление жанров для фильма filmId = {} genres = {} ", filmId, genres);
         List<Object[]> batchArgs = genres.stream()
                 .map(genre -> new Object[]{filmId, genre.getId()})

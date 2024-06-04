@@ -1,6 +1,7 @@
 package ru.yandex.practicum.filmorate.storage;
 
-import lombok.RequiredArgsConstructor;
+import java.time.LocalDate;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,25 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.TestConstructor;
-import org.springframework.test.context.TestConstructor.AutowireMode;
 import ru.yandex.practicum.filmorate.model.entity.film.Film;
 import ru.yandex.practicum.filmorate.model.entity.film.enumerated.MPA;
 import ru.yandex.practicum.filmorate.storage.dao.FilmDao;
 
-import java.time.LocalDate;
-import java.util.List;
-
 @SpringBootTest
 @AutoConfigureTestDatabase
-@TestConstructor(autowireMode = AutowireMode.ALL)
 @DisplayName("Тестирование хранилища пользователей")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class FilmStorageTest {
 
-    @Autowired
-    private final FilmDao filmDao;
     private final Film film = Film.builder()
             .name("test")
             .description("test")
@@ -34,6 +26,9 @@ public class FilmStorageTest {
             .duration(100L)
             .mpa(MPA.PG)
             .build();
+
+    @Autowired
+    private FilmDao filmDao;
 
     @Test
     @DisplayName("Создание фильма")

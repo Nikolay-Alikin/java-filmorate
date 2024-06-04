@@ -52,6 +52,7 @@ values ('COMEDY'),
        ('DOCUMENTARY'),
        ('ACTION');
 
+
 create table mpa
 (
     id   LONG auto_increment,
@@ -111,4 +112,3 @@ create table likes
 );
 comment on column likes.film_id is 'id фильма';
 comment on column likes.user_id is 'id пользователя';
-

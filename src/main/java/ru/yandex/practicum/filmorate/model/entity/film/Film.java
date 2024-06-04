@@ -1,14 +1,13 @@
 package ru.yandex.practicum.filmorate.model.entity.film;
 
-import lombok.Builder;
-import lombok.Data;
-import ru.yandex.practicum.filmorate.model.entity.film.enumerated.Genre;
-import ru.yandex.practicum.filmorate.model.entity.film.enumerated.MPA;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import lombok.Builder;
+import lombok.Data;
+import ru.yandex.practicum.filmorate.model.entity.film.enumerated.Genre;
+import ru.yandex.practicum.filmorate.model.entity.film.enumerated.MPA;
 
 @Data
 @Builder
@@ -22,7 +21,8 @@ public class Film {
     private MPA mpa;
     @Builder.Default
     private Set<Genre> genres = new HashSet<>();
-    private final Set<Long> likes = new HashSet<>();
+    @Builder.Default
+    private Set<Long> likes = new HashSet<>();
 
     public Map<String, Object> toMap() {
         return Map.of(

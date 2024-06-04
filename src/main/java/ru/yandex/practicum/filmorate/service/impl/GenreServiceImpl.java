@@ -1,22 +1,19 @@
 package ru.yandex.practicum.filmorate.service.impl;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.filmorate.model.entity.film.enumerated.Genre;
 import ru.yandex.practicum.filmorate.service.GenreService;
 import ru.yandex.practicum.filmorate.storage.EnumStorage;
 import ru.yandex.practicum.generated.model.dto.GenreDTO;
 
-import java.util.List;
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class GenreServiceImpl implements GenreService {
 
-    @Qualifier("genreDao")
     private final EnumStorage<Genre> genreStorage;
 
     @Override

@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate.storage.dao;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -7,8 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.yandex.practicum.filmorate.model.entity.film.enumerated.Genre;
 import ru.yandex.practicum.filmorate.storage.EnumStorage;
-
-import java.util.List;
 
 @Slf4j
 @Repository
@@ -21,7 +20,7 @@ public class GenreDao implements EnumStorage<Genre> {
     public Genre getEnumByEntityId(Long id) {
         log.info("Запрос на получение жанра по id {}", id);
         String sql = """
-                select name from GENRES
+                select id, name from GENRES
                 where id = (select GENRE_ID from films where id =?)
                 """;
         try {
