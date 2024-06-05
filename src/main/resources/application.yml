@@ -1,1 +1,16 @@
-
+server:
+  port: 8080
+spring:
+  liquibase:
+    change-log: db/changelog/changelog.yml
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:h2:file:./data/filmorate
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver

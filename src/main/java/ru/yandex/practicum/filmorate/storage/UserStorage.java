@@ -1,8 +1,7 @@
 package ru.yandex.practicum.filmorate.storage;
 
-import ru.yandex.practicum.filmorate.model.entity.User;
-
 import java.util.List;
+import ru.yandex.practicum.filmorate.model.entity.User;
 
 public interface UserStorage {
 
@@ -15,5 +14,4 @@ public interface UserStorage {
     User delete(Long id);
 
     List<User> getAll();
-
 }
